@@ -14,7 +14,7 @@ import androidx.fragment.app.DialogFragment;
 
 public class EditCityFragment extends DialogFragment {
 
-
+    City cityClass;
     interface EditCityDialogListener {
         void editCity(String cityName, String province);
     }
@@ -40,10 +40,13 @@ public class EditCityFragment extends DialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_edit_city, null);
 
-
         EditText editCityName = view.findViewById(R.id.modify_text_city_text);
         EditText editProvinceName = view.findViewById(R.id.modify_text_province_text);
-        
+
+        // show the city name and province name
+        editCityName.setText(cityClass.getName());
+        editProvinceName.setText(cityClass.getProvince());
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         return builder
                 .setView(view)
@@ -58,6 +61,10 @@ public class EditCityFragment extends DialogFragment {
                     listener.editCity(cityName, provinceName);
                 })
                 .create();
+    }
+
+    public void setCityClass(City cityClass) {
+        this.cityClass = cityClass;
     }
 }
 

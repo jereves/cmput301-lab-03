@@ -11,13 +11,17 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:background="#61368C"
         android:elevation="4dp">
 
         <TextView
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cities"
-            android:textAppearance="?attr/textAppearanceHeadline6" />
+            android:fontFamily="sans-serif-condensed"
+            android:text="ListyCity"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="#F4F4F4" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 
@@ -27,7 +31,8 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:contextClickable="true"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:contentDescription="Add City button"/>
 
     <ListView
         android:id="@+id/city_list"

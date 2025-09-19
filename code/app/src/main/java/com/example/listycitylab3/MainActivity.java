@@ -68,7 +68,13 @@ public class MainActivity extends AppCompatActivity implements AddCityFragment.A
 
                 accessedPos = i;
 
-                new EditCityFragment().show(getSupportFragmentManager(), "Edit City");
+                EditCityFragment FragmentEdit = new EditCityFragment();
+
+                // set the City
+                City accessedCity= dataList.get(i);
+                FragmentEdit.setCityClass(accessedCity);
+
+                FragmentEdit.show(getSupportFragmentManager(), "Edit City");
             }
         });
     }
